@@ -6,6 +6,38 @@
 
 This project implements the RAD (Reinforcement Learning with Augmented Data) algorithm from Laskin et al. (NeurIPS 2020), demonstrating how simple data augmentations can dramatically improve sample efficiency in pixel-based reinforcement learning.
 
+## Table of Contents
+
+- [Code Repository](#code-repository)
+- [Project Overview](#project-overview)
+- [Requirements](#requirements)
+  - [Core Dependencies](#core-dependencies)
+- [Quick Start](#quick-start)
+  - [Automated Setup (Recommended)](#automated-setup-recommended)
+  - [Manual Setup (Alternative)](#manual-setup-alternative)
+- [Project Structure](#project-structure)
+- [Usage](#usage)
+  - [Quick Test (3 minutes)](#quick-test-3-minutes)
+  - [Full Experiments (180+ hours)](#full-experiments-200-hours)
+  - [Single Experiment](#single-experiment)
+- [Understanding Results](#understanding-results)
+  - [Log Files](#log-files)
+  - [Success Criteria](#success-criteria)
+  - [Example Analysis](#example-analysis)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues](#common-issues)
+- [Technical Details](#technical-details)
+  - [Algorithm Implementation](#algorithm-implementation)
+  - [Experimental Setup](#experimental-setup)
+  - [Expected Timeline](#expected-timeline)
+- [Learning Objectives](#learning-objectives)
+- [Key Papers](#key-papers)
+- [Getting Help](#getting-help)
+
+## Code Repository 
+
+The code repository for this project can be found on [here](https://github.com/aunshx/rad-repl.git) on Github.
+
 ## Project Overview
 
 RAD shows that applying simple data augmentations (like random crop and translate) directly to the RL objective can achieve similar performance to more complex methods like CURL, but with much simpler implementation. This project replicates key results from Table 1 of the original paper.
@@ -13,9 +45,9 @@ RAD shows that applying simple data augmentations (like random crop and translat
 ## Requirements
 
 - Python 3.8+
-- macOS (Apple Silicon or Intel) or Linux
-- ~5GB free disk space for dependencies
-- ~10+ hours for full experiments (or 3 minutes for quick test)
+- macOS (Apple Silicon) or Linux
+- ~10GB free disk space for dependencies
+- ~180+ hours for full experiments (or 3 minutes for quick test)
 
 ### Core Dependencies
 
@@ -38,7 +70,6 @@ scikit-image           # Image processing
 opencv-python          # Computer vision utilities
 termcolor              # Colored terminal output
 ```
-
 
 ## Quick Start
 
@@ -109,7 +140,7 @@ python run.py --test
 
 Runs a short experiment to verify everything works.
 
-### Full Experiments (200+ hours)
+### Full Experiments (180+ hours)
 
 ```bash
 conda activate eec256_rad
@@ -246,7 +277,7 @@ ls train.py rad_sac.py run.py setup.py
 |------|------|-------------|
 | Setup | 5-10 min | Install dependencies |
 | Quick test | 3 min | Verify everything works |
-| Full experiments | 200+ hours | Complete replication |
+| Full experiments | 180+ hours | Complete replication |
 | Analysis | 1-2 hours | Plot results, compute statistics |
 
 ## Learning Objectives
@@ -271,15 +302,6 @@ This project demonstrates:
 2. **Check:** Error messages in terminal output
 3. **Verify:** All files (train.py, rad_sac.py, run.py, setup.py) are present
 4. **Confirm:** Conda environment is activated (`conda activate eec256_rad`)
-
-## Submission Checklist
-
-- [ ] Code runs without errors (`python run.py --test` passes)
-- [ ] Full experiments completed (`python run.py --full`)
-- [ ] Results show RAD outperforming baseline
-- [ ] All code files properly commented
-- [ ] README explains setup and usage
-- [ ] Setup script allows easy reproduction
 
 ---
 
