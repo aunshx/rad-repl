@@ -10,11 +10,6 @@ This project implements the RAD (Reinforcement Learning with Augmented Data) alg
 
 RAD shows that applying simple data augmentations (like random crop and translate) directly to the RL objective can achieve similar performance to more complex methods like CURL, but with much simpler implementation. This project replicates key results from Table 1 of the original paper.
 
-**Expected Results:**
-
-- Walker Walk with RAD: ~504±191 reward
-- Walker Walk without augmentation: ~127±24 reward
-
 ## Requirements
 
 - Python 3.8+
@@ -127,7 +122,7 @@ import json
 import matplotlib.pyplot as plt
 
 # Read evaluation results
-with open('results/walker_walk_rad_seed_1/eval.log', 'r') as f:
+with open('results/walker_walk_rad_seed_1/**/eval.log', 'r') as f:
     rad_data = [json.loads(line) for line in f]
 
 # Plot learning curve

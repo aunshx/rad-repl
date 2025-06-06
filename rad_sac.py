@@ -1,14 +1,5 @@
 """
-RAD-SAC Implementation for EEC 256 Final Project
-
-The below code implements the RAD (Reinforcement Learning with Augmented Data) algorithm
-from the NeurIPS 2020 paper by Laskin et al. The key insight is that simple data
-augmentations can dramatically improve sample efficiency in pixel-based RL without
-needing complex auxiliary losses like CURL.
-
-Project Option 3: Replicating "Reinforcement Learning with Augmented Data"
-Course: EEC 256 Introduction to Reinforcement Learning
-Author: Aunsh Bandivadekar
+RAD-SAC Implementation
 """
 
 import numpy as np

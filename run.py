@@ -1,17 +1,5 @@
 """
 Experiment Runner for RAD-SAC Implementation
-
-This script automates running experiments to replicate the results from the RAD paper
-(Laskin et al., NeurIPS 2020). It handles dependency checking, parameter configuration,
-and running multiple experiments with different seeds for statistical significance.
-
-Project Option 3: Replicating "Reinforcement Learning with Augmented Data"
-Course: EEC 256 Introduction to Reinforcement Learning
-Author: Aunsh Bandivadekar
-
-The script can run either:
-1. Quick tests (1000 steps, ~3 minutes) to verify everything works
-2. Full experiments (100k steps, ~200+ hours) to replicate paper results
 """
 
 import subprocess
