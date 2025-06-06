@@ -17,6 +17,29 @@ RAD shows that applying simple data augmentations (like random crop and translat
 - ~5GB free disk space for dependencies
 - ~10+ hours for full experiments (or 3 minutes for quick test)
 
+### Core Dependencies
+
+The automated setup script will install these packages:
+
+```bash
+# Core ML packages
+torch torchvision         # PyTorch for neural networks
+numpy==1.23.5            # Numerical computing (pinned for compatibility)
+
+# RL Environment packages  
+dm-control==1.0.5        # DeepMind Control Suite physics environments
+mujoco==2.3.6           # MuJoCo physics engine (required by dm-control)
+dmc2gym                 # Wrapper to make DMControl compatible with Gym
+
+# Utilities and visualization
+matplotlib              # Plotting results
+imageio imageio-ffmpeg  # Video recording capabilities
+scikit-image           # Image processing
+opencv-python          # Computer vision utilities
+termcolor              # Colored terminal output
+```
+
+
 ## Quick Start
 
 ### Automated Setup (Recommended)
@@ -108,8 +131,29 @@ python train.py --domain_name walker --task_name walk --data_augs crop --seed 1 
 
 Each experiment creates two log files:
 
-- `train.log`: Training metrics (episode rewards, losses)
-- `eval.log`: Evaluation metrics (performance during training)
+**train.log** - Training metrics logged during training:
+
+```json
+{"duration": 11.41, "episode_reward": 40.35, "episode": 3.0, "batch_reward": 0.078, "critic_loss": 0.961, "actor_loss": -0.829, "step": 1500}
+```
+
+**eval.log**: Evaluation metrics logged every 500 steps
+
+```json
+{"episode": 0.0, "episode_reward": 24.217133273796414, "eval_time": 9.727205991744995, "mean_episode_reward": 24.217133273796414, "best_episode_reward": 44.39462270492695, "step": 0}
+{"episode": 1.0, "episode_reward": 30.111354787240714, "eval_time": 9.82511281967163, "mean_episode_reward": 30.111354787240714, "best_episode_reward": 58.14674976984445, "step": 500}
+```
+
+- `episode`: Evaluation episode number
+- `episode_reward`: Reward from the current evaluation episode
+- `mean_episode_reward`: Average reward across all evaluation episodes at this step
+- `best_episode_reward`: Highest reward achieved in any evaluation episode so far
+- `step`: Training step when this evaluation was performed
+- `eval_time`: Time taken to run the evaluation (seconds)
+- `duration`: Time taken to complete the episode (seconds)
+- `batch_reward`: Average reward in the current training batch
+- `critic_loss`: Loss value for the critic network (lower = better learning)
+- `actor_loss`: Loss value for the actor network (can be negative)
 
 ### Success Criteria
 

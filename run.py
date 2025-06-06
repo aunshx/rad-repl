@@ -347,9 +347,15 @@ def main():
     # We focus on one environment initially but can easily add more
     environments = [
         # Format: (env_name, domain_name, task_name, action_repeat)
-        ('walker_walk', 'walker', 'walk', 2),
-        ('cartpole_swingup', 'cartpole', 'swingup', 8),
-        ('finger_spin', 'finger', 'spin', 2),
+        # Locomotion tasks - bipedal walking and quadruped running
+        ('walker_walk', 'walker', 'walk', 2),           # Bipedal humanoid walking
+        ('cheetah_run', 'cheetah', 'run', 4),           # Quadruped running task
+        # Manipulation tasks - reaching and catching objects  
+        ('reacher_easy', 'reacher', 'easy', 4),         # Simple reaching task
+        ('cup_catch', 'cup', 'catch', 4),               # Ball catching with cup
+        # Control tasks - classic control problems
+        ('cartpole_swingup', 'cartpole', 'swingup', 8), # Inverted pendulum
+        ('finger_spin', 'finger', 'spin', 2),           # Spinning object with finger
     ]
 
     # Compare RAD (with augmentation) vs baseline (without augmentation)
@@ -373,9 +379,6 @@ def main():
     print(f"Seeds: {len(seeds)}")
     print(f"Total experiments: {total}")
     print(f"Estimated time: {total * 2} - {total * 3} hours")
-    print("\nExpected results from RAD paper (Table 1, 100k steps):")
-    print("Walker Walk - RAD: 504±191")
-    print("Walker Walk - Pixel SAC: 127±24")
     print("\nStarting experiments...")
     print('-' * 60)
 
