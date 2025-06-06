@@ -28,6 +28,7 @@ share/python-wheels/
 MANIFEST
 train copy.py
 =1.12.0
+results
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
