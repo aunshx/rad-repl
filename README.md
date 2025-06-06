@@ -16,6 +16,7 @@ This project implements the RAD ([Reinforcement Learning with Augmented Data](ht
   - [Automated Setup (Recommended)](#automated-setup-recommended)
   - [Manual Setup (Alternative)](#manual-setup-alternative)
 - [Project Structure](#project-structure)
+  - [File Description](#file-description)
 - [Usage](#usage)
   - [Quick Test (3 minutes)](#quick-test-3-minutes)
   - [Full Experiments (180+ hours)](#full-experiments-200-hours)
@@ -128,6 +129,15 @@ project/
     ├── walker_walk_pixel_sac_seed_1/
     └── ...
 ```
+
+### File Description
+
+- `rad_sac.py`: RAD-SAC agent implementation with data augmentation functions (random_crop, random_translate) and SAC networks
+- `train.py`: Main training script that sets up DMControl environment, manages replay buffer, and runs the training loop
+- `run.py`: Experiment runner that checks dependencies, runs quick tests, and orchestrates full experimental suite
+- `setup.py`: Automated setup script that creates conda environment, installs packages, and fixes compatibility issues
+- `README.md`: Project documentation with setup instructions, usage examples, and troubleshooting guide
+
 
 ## Usage
 
