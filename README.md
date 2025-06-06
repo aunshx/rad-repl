@@ -4,7 +4,7 @@
 **Author:** Aunsh Bandivadekar  
 **Project:** Option 3 - Replicating "Reinforcement Learning with Augmented Data"
 
-This project implements the RAD (Reinforcement Learning with Augmented Data) algorithm from Laskin et al. (NeurIPS 2020), demonstrating how simple data augmentations can dramatically improve sample efficiency in pixel-based reinforcement learning.
+This project implements the RAD ([Reinforcement Learning with Augmented Data](https://proceedings.neurips.cc/paper/2020/file/e615c82aba461681ade82da2da38004a-Paper.pdf)) paper algorithms from Laskin et al. (NeurIPS 2020), demonstrating how simple data augmentations can dramatically improve sample efficiency in pixel-based reinforcement learning.
 
 ## Table of Contents
 
@@ -36,11 +36,11 @@ This project implements the RAD (Reinforcement Learning with Augmented Data) alg
 
 ## Code Repository 
 
-The code repository for this project can be found on [here](https://github.com/aunshx/rad-repl.git) on Github.
+The code repository for this project can be found [here](https://github.com/aunshx/rad-repl.git) on Github.
 
 ## Project Overview
 
-RAD shows that applying simple data augmentations (like random crop and translate) directly to the RL objective can achieve similar performance to more complex methods like CURL, but with much simpler implementation. This project replicates key results from Table 1 of the original paper.
+RAD shows that applying simple data augmentations (like random crop and translate) directly to the RL objective can achieve similar performance to more complex methods like CURL, but with much simpler implementation. This project replicates key results from the original paper.
 
 ## Requirements
 
@@ -188,7 +188,7 @@ Each experiment creates two log files:
 
 ### Success Criteria
 
-- RAD should significantly outperform Pixel SAC**
+- RAD should significantly outperform Pixel SAC
 
 ### Example Analysis
 
@@ -292,9 +292,9 @@ This project demonstrates:
 
 ## Key Papers
 
-- **Main Paper:** Laskin et al. "Reinforcement Learning with Augmented Data" (NeurIPS 2020)
-- **SAC:** Haarnoja et al. "Soft Actor-Critic" (ICML 2018)
-- **DMControl:** Tassa et al. "DeepMind Control Suite" (2018)
+- **Main Paper:** Laskin et al. [Reinforcement Learning with Augmented Data](https://proceedings.neurips.cc/paper/2020/file/e615c82aba461681ade82da2da38004a-Paper.pdf) (NeurIPS 2020)
+- **SAC:** Haarnoja et al. [Soft Actor-Critic](https://proceedings.mlr.press/v80/haarnoja18b.html) (ICML 2018)
+- **DMControl:** Tassa et al. [DeepMind Control Suite](https://arxiv.org/pdf/2006.12983) (2018)
 
 ## Getting Help
 
