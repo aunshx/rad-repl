@@ -28,10 +28,10 @@ RAD shows that applying simple data augmentations (like random crop and translat
 
 ```bash
 # Download/clone the project files
-# Ensure you have: train.py, rad_sac.py, run.py, complete_setup.py
+# Ensure you have: train.py, rad_sac.py, run.py, setup.py
 
 # Run the complete setup script
-python complete_setup.py
+python setup.py
 
 # Activate environment and test
 conda activate eec256_rad
@@ -58,7 +58,7 @@ pip install dm-control==1.0.5 mujoco==2.3.6
 pip install git+https://github.com/1nadequacy/dmc2gym.git
 
 # 5. Fix compatibility issues
-python complete_setup.py
+python setup.py
 
 # 6. Test
 python run.py --test
@@ -71,7 +71,7 @@ project/
 ├── train.py           # Main training script with RAD implementation
 ├── rad_sac.py         # RAD-SAC agent with data augmentations  
 ├── run.py             # Experiment runner and dependency checker
-├── complete_setup.py  # Automated setup script
+├── setup.py  # Automated setup script
 ├── README.md          # This file
 └── results/           # Generated during experiments
     ├── walker_walk_rad_seed_1/
@@ -118,10 +118,7 @@ Each experiment creates two log files:
 
 ### Success Criteria
 
-- **RAD should significantly outperform Pixel SAC**
-- Final evaluation rewards:
-  - RAD: ~400-600 (good performance)
-  - Pixel SAC: ~100-200 (baseline performance)
+- RAD should significantly outperform Pixel SAC**
 
 ### Example Analysis
 
@@ -185,7 +182,7 @@ export PYOPENGL_PLATFORM=egl
 
 ```bash
 # Make sure all required files are present:
-ls train.py rad_sac.py run.py complete_setup.py
+ls train.py rad_sac.py run.py setup.py
 ```
 
 ## Technical Details
@@ -233,7 +230,7 @@ This project demonstrates:
 
 1. **First:** Try `python run.py --test` to identify issues
 2. **Check:** Error messages in terminal output
-3. **Verify:** All files (train.py, rad_sac.py, run.py, complete_setup.py) are present
+3. **Verify:** All files (train.py, rad_sac.py, run.py, setup.py) are present
 4. **Confirm:** Conda environment is activated (`conda activate eec256_rad`)
 
 ## Submission Checklist
@@ -247,4 +244,4 @@ This project demonstrates:
 
 ---
 
-**Note:** The automated setup script (`complete_setup.py`) handles all the complex dependency installation and compatibility fixes automatically. If you encounter any issues, the script provides detailed error messages and fallback options.
+**Note:** The automated setup script (`setup.py`) handles all the complex dependency installation and compatibility fixes automatically. If you encounter any issues, the script provides detailed error messages and fallback options.
