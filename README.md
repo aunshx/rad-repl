@@ -48,8 +48,10 @@ RAD shows that applying simple data augmentations (like random crop and translat
 
 - Python 3.8+
 - macOS (Apple Silicon) or Linux
+- conda v24 and up
+- ~30GB RAM
 - ~10GB free disk space for dependencies
-- ~100+ hours for full experiments (or 3 minutes for quick test)
+
 
 ### Core Dependencies
 
