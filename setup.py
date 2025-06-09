@@ -22,7 +22,7 @@ import platform
 
 def run_command(cmd, description):
     """Run a command with error handling."""
-    print(f"Running {description}...")
+    print(f"Running {description}")
     try:
         result = subprocess.run(cmd, shell=True, check=True, capture_output=True, text=True)
         print(f"SUCCESS: {description} completed")
@@ -40,10 +40,10 @@ def install_system_dependencies():
     system = platform.system().lower()
     
     if system == "darwin":
-        print("macOS detected - Installing system dependencies...")
+        print("macOS detected - Installing system dependencies")
         
         if not check_command_exists("brew"):
-            print("Installing Homebrew...")
+            print("Installing Homebrew")
             install_cmd = '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
             if not run_command(install_cmd, "Installing Homebrew"):
                 print("WARNING: Homebrew installation failed. Please install manually from https://brew.sh")
@@ -70,7 +70,7 @@ def setup_conda_environment():
         return False
     
     # Remove existing environment
-    print("Removing any existing environment...")
+    print("Removing any existing environment")
     run_command("conda env remove -n eec256_rad -y", "Removing existing environment")
     
     # Create fresh environment
@@ -78,7 +78,7 @@ def setup_conda_environment():
         return False
     
     # Install packages
-    print("Installing core packages...")
+    print("Installing core packages")
     packages = [
         "torch torchvision numpy==1.23.5 matplotlib imageio imageio-ffmpeg scikit-image opencv-python termcolor",
         "dm-control==1.0.5 mujoco==2.3.6",
@@ -241,7 +241,7 @@ def main():
     
     # Step 1: Install system dependencies
     if not install_system_dependencies():
-        print("WARNING: System dependency installation had issues, but continuing...")
+        print("WARNING: System dependency installation had issues, but continuing")
     
     # Step 2: Set up conda environment
     if not setup_conda_environment():
