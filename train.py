@@ -364,7 +364,7 @@ class AcgMet(object):
         """Get current average value."""
         return self._sum / max(1, self._count)
 
-class MetersGroup(object):
+class MetricGrp(object):
     """
     Group of metrics that can be logged together. Each metric group (train/eval) has its own formatting specification.
     """
@@ -469,7 +469,7 @@ class Logger(object):
         self._log_dir = log_dir
         
         # Training metrics: episode info, rewards, and loss values
-        self._train_mg = MetersGroup(
+        self._train_mg = MetricGrp(
             os.path.join(log_dir, 'train.log'),
             formating=[
                 ('episode', 'E', 'int'), # Episode number
@@ -483,7 +483,7 @@ class Logger(object):
         )
         
         # Evaluation metrics: simpler, just step and reward
-        self._eval_mg = MetersGroup(
+        self._eval_mg = MetricGrp(
             os.path.join(log_dir, 'eval.log'),
             formating=[
                 ('step', 'S', 'int'), # Training step
@@ -748,9 +748,9 @@ def main():
     # Create unique experiment directory with timestamp and configuration
     ts = time.gmtime() 
     ts = time.strftime("%m-%d", ts)    
-    env_name = args.domain_name + '-' + args.task_name + '-'
-    exp_name = env_name + ts + '-im' + str(args.image_size) +'-b'  \
-    + str(args.batch_size) + '-s' + str(args.seed)  + '-' + args.encoder_type
+    env_name = args.domain_name + '-' + args.task_name
+    exp_name = 'im' + str(args.image_size) +'-b'  \
+    + str(args.batch_size)
     args.work_dir = args.work_dir + '/'  + exp_name
     make_dir(args.work_dir)
 
@@ -797,16 +797,16 @@ def main():
 
     # --------------------
     # MAIN TRAINING LOOP
-    print(f"Starting RAD-SAC training for {args.num_train_steps} steps...")
+    print(f"Starting RAD-SAC training for {args.num_train_steps} steps")
     print(f"Environment: {args.domain_name}_{args.task_name}")
     print(f"Augmentations: {args.data_augs}")
     print(f"Device: {device}")
     
     for step in range(args.num_train_steps):
-        # -----------------------------
+        # --------------------------
         # PERIODIC EVALUATION
         if step % args.eval_freq == 0:
-            print(f"Step {step}: Running evaluation...")
+            print(f"Step {step}: Running evaluation")
             L.log('eval/episode', episode, step)
             evaluate(env, agent, args.num_eval_epis, L, step, args)
 

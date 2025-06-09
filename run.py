@@ -36,14 +36,14 @@ def run_experiment(env_name, domain_name, task_name, action_repeat, augmentation
     # Configure experiment parameters based on mode
     if debug_mode:
         # Debug mode: Fast parameters for testing
-        num_train_steps = '2000'     # Only 2k steps (vs 100k for full)
+        num_train_steps = '2500'     # Only 2k steps (vs 100k for full)
         eval_freq = '500'            # Evaluate every 500 steps
         batch_size = '32'            # Smaller batch size
         num_eval_episodes = '5'      # Fewer evaluation episodes
         print(f"DEBUG MODE: {num_train_steps} steps only")
     else:
         # Full mode: Paper's parameters for replication
-        num_train_steps = '100000'   # Full 100k steps as in paper
+        num_train_steps = '100500'   # Full 100k steps as in paper
         eval_freq = '10000'          # Evaluate every 10k steps  
         batch_size = '512'           # Full batch size for stable training
         num_eval_episodes = '10'     # More evaluation episodes for better statistics
@@ -147,7 +147,7 @@ def test_dependencies():
     Returns:
         bool: True if all dependencies are satisfied, False otherwise
     """
-    print("Testing dependencies...")
+    print("Testing dependencies")
     
     # Test PyTorch installation
     try:
@@ -189,7 +189,7 @@ def test_dependencies():
             print(f"DMControl environment creation successful (obs shape: {obs.shape})")
         except Exception as e:
             print(f"DMControl environment creation failed: {e}")
-            print("This might cause issues but let's continue...")
+            print("This might cause issues but let's continue")
             
     except ImportError:
         print("dm-control not found. Try:")
@@ -254,7 +254,7 @@ def quick_test():
         print("\nDependency test failed. Fix issues above.")
         return False
     
-    print("\nStarting quick test experiment...")
+    print("\nStarting quick test experiment")
     
     # Run one short experiment to test the full pipeline
     success = run_experiment(
@@ -352,7 +352,6 @@ def main():
         ('cheetah_run', 'cheetah', 'run', 4),           # Quadruped running task
         # Manipulation tasks - reaching and catching objects  
         ('reacher_easy', 'reacher', 'easy', 4),         # Simple reaching task
-        ('cup_catch', 'cup', 'catch', 4),               # Ball catching with cup
         # Control tasks - classic control problems
         ('cartpole_swingup', 'cartpole', 'swingup', 8), # Inverted pendulum
         ('finger_spin', 'finger', 'spin', 2),           # Spinning object with finger
@@ -379,7 +378,7 @@ def main():
     print(f"Seeds: {len(seeds)}")
     print(f"Total experiments: {total}")
     print(f"Estimated time: {total * 2} - {total * 3} hours")
-    print("\nStarting experiments...")
+    print("\nStarting experiments")
     print('-' * 60)
 
     # Run all experiment combinations
@@ -400,7 +399,7 @@ def main():
                     successful += 1
                     print(f"Experiment {current} completed successfully")
                 else:
-                    print(f"Experiment {current} failed - continuing with next one...")
+                    print(f"Experiment {current} failed - continuing with next one")
 
     # Report final results
     print("\n" + '-' * 60)
