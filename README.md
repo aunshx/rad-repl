@@ -17,10 +17,11 @@ This project implements the RAD ([Reinforcement Learning with Augmented Data](ht
   - [Manual Setup (Alternative)](#manual-setup-alternative)
 - [Project Structure](#project-structure)
   - [File Description](#file-description)
-- [Usage](#usage)
+- [Run Experiments](#run-experiments)
   - [Quick Test (3 minutes)](#quick-test-3-minutes)
-  - [Full Experiments (180+ hours)](#full-experiments-200-hours)
+  - [Full Experiments (100+ hours)](#full-experiments-200-hours)
   - [Single Experiment](#single-experiment)
+  - [If you're not able to run locally](#if-youre-not-able-to-run-locally)
 - [Understanding Results](#understanding-results)
   - [Log Files](#log-files)
   - [Success Criteria](#success-criteria)
@@ -48,7 +49,7 @@ RAD shows that applying simple data augmentations (like random crop and translat
 - Python 3.8+
 - macOS (Apple Silicon) or Linux
 - ~10GB free disk space for dependencies
-- ~180+ hours for full experiments (or 3 minutes for quick test)
+- ~100+ hours for full experiments (or 3 minutes for quick test)
 
 ### Core Dependencies
 
@@ -139,7 +140,7 @@ project/
 - `README.md`: Project documentation with setup instructions, usage examples, and troubleshooting guide
 
 
-## Usage
+## Run Experiments
 
 ### Quick Test (3 minutes)
 
@@ -150,7 +151,7 @@ python run.py --test
 
 Runs a short experiment to verify everything works.
 
-### Full Experiments (180+ hours)
+### Full Experiments (100+ hours)
 
 ```bash
 conda activate eec256_rad
@@ -165,6 +166,13 @@ Runs the complete experimental suite with multiple seeds.
 conda activate eec256_rad
 python train.py --domain_name walker --task_name walk --data_augs crop --seed 1 --num_train_steps 100000
 ```
+
+### If you're not able to run locally 
+
+It is possible that you may not be able to setup the environment required to run the experiments locally. If that's the case then do one of the two following things:
+
+- Visit the [Troubleshooting](#troubleshooting) section of this document 
+- Go to this [Google Colab Notebook](https://colab.research.google.com/drive/1NbNUiR6Qxrm8nMBri4XAkhBiJAd3s87N?usp=sharing) which has the environment setup. You will have to execute the notebook again (cell by cell) in order to create the files and run the experiments. The commands are the same as above. 
 
 ## Understanding Results
 
@@ -287,7 +295,7 @@ ls train.py rad_sac.py run.py setup.py
 |------|------|-------------|
 | Setup | 5-10 min | Install dependencies |
 | Quick test | 3 min | Verify everything works |
-| Full experiments | 180+ hours | Complete replication |
+| Full experiments | 100+ hours | Complete replication |
 | Analysis | 1-2 hours | Plot results, compute statistics |
 
 ## Learning Objectives
